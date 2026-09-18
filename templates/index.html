@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Insurance Cost Prediction</title>
+</head>
+
+<body>
+
+<h2>Medical Insurance Cost Prediction</h2>
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="body_form">
+                <div class="left_side">
+
+                    <h3>Age</h3>
+                    <input id="first" name="age" type="number" required="required">
+                    <br><br>
+
+                    <h3>Sex</h3>
+                    <select name="sex" id="dropdown" required="required">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <br><br>
+
+                    <h3>BMI (Body Mass Index)</h3>
+                    <input id="second" name="bmi" type="text" required="required">
+                    <br><br>
+
+                </div>
+                <div class="right_side">
+
+                    <h3>Number of Children</h3>
+                    <input id="third" name="children" type="number" min="0" max="5" required="required">
+                    <br><br>
+
+                    <h3>Smoker</h3>
+                    <select name="smoker" id="dropdown" required="required">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <br><br>
+
+                    <h3>Region</h3>
+                    <select name="region" id="dropdown" required="required">
+                        <option value="northeast">Northeast</option>
+                        <option value="southeast">Southeast</option>
+                        <option value="northwest">Northwest</option>
+                        <option value="southwest">Southwest</option>
+                    </select>
+                    <br>
+
+                    <button id="sub" type="submit">Predict Insurance Cost</button>
+                </div>
+            </div>
+        </form>
+
+        <br><br>
+        <h3>{{ pred }}</h3>
+
+    <style>
+        body {
+            text-align: left;
+            padding: 16px 32px;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .body_form {
+            display: flex;
+        }
+
+        .left_side, .right_side {
+            color: black;
+            width: 50%;
+        }
+
+        h3 {
+            font-weight: normal;
+        }
+
+        #dropdown, #first, #second, #third {
+            width: 240px;
+            height: 40px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+        }
+
+        #sub {
+            height: 60px;
+            width: 240px;
+            margin-top: 20px;
+            padding: 10px 16px;
+            text-align: center;
+            border-radius: 8px;
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            border: none;
+        }
+
+        #sub:hover {
+            background-color: #218838;
+            cursor: pointer;
+        }
+    </style>
+</body>
+
+</html>
